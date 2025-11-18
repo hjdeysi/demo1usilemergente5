@@ -1,0 +1,85 @@
+<!-- Indica que este archivo usa la versión HTML5 -->
+<!DOCTYPE html>
+
+<!-- Etiqueta raíz del documento -->
+<!-- lang="es" indica que el idioma principal del contenido es español -->
+<html lang="es">
+
+<head>
+  <!-- Define la codificación de caracteres para mostrar tildes y eñes correctamente -->
+  <meta charset="UTF-8" />
+
+  <!-- Hace que la página se adapte a pantallas pequeñas (teléfonos, tablets) -->
+  <!-- width=device-width ajusta el ancho del contenido al ancho del dispositivo -->
+  <!-- initial-scale=1.0 define el nivel de zoom inicial -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Título que se mostrará en la pestaña del navegador -->
+  <title>CRONICS ASESOR</title>
+
+  <!-- Enlace a la hoja de estilos CSS (archivo externo) -->
+  <!-- href indica la ubicación del archivo CSS dentro de la carpeta "styles" -->
+  <link rel="stylesheet" href="styles/sryle.css">
+
+  <!-- Enlace a un archivo JavaScript externo -->
+  <!-- "defer" significa que el script se ejecutará solo después de cargar todo el HTML -->
+  <script defer src="scripts/app.js"></script>
+</head>
+
+<body>
+  <!-- CONTENEDOR PRINCIPAL -->
+  <!-- Agrupa todos los elementos del chat en un bloque -->
+  <!-- class="contenedor-chat" sirve para aplicar estilos CSS a este bloque -->
+  <div class="contenedor-chat">
+
+    <!-- CABECERA DEL CHAT -->
+    <!-- Contiene el logo y los textos de identificación -->
+    <header class="cabecera">
+      <!-- IMAGEN -->
+      <!-- src especifica la ruta de la imagen -->
+      <!-- alt es el texto alternativo si la imagen no se carga (mejora accesibilidad) -->
+      <img src="CRONICS.png" alt="Logo de CRONICS" />
+
+      <!-- CONTENEDOR DE TEXTOS DENTRO DE LA CABECERA -->
+      <div class="info-cabecera">
+
+        <!-- SPAN: elemento en línea -->
+        <!-- Se usa para aplicar estilo a una parte de texto sin crear un salto de línea -->
+        <!-- Aquí se usa para el nombre principal del chat -->
+        <!-- class="titulo" permite aplicar un estilo CSS específico (por ejemplo, fuente grande) -->
+        <span class="titulo">CRONICS</span>
+
+        <!-- Otro SPAN para el subtítulo -->
+        <!-- Es un texto adicional debajo o al lado del título -->
+        <!-- Se usa span y no div porque ambos textos forman parte de una misma línea lógica -->
+        <span class="subtitulo">ASESOR</span>
+      </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL DEL CHAT -->
+    <!-- MAIN es una etiqueta semántica que representa el "núcleo" o parte central de la página -->
+    <!-- Solo debe existir un <main> por documento -->
+    <!-- Aquí agrupa todos los mensajes entre el usuario y el bot -->
+    <main class="mensajes">
+      <!-- Cada mensaje es un bloque (div) -->
+      <!-- class="mensaje bot" indica que el mensaje fue enviado por el bot -->
+      <div class="mensaje bot">Hola, ¿en qué puedo ayudarte?</div>
+
+      <!-- class="mensaje usuario" indica que el mensaje fue escrito por el usuario -->
+      <div class="mensaje usuario">Buenas, me gustaría obtener información</div>
+    </main>
+
+    <!-- PIE DEL CHAT (zona donde se escribe el mensaje) -->
+    <footer class="entrada">
+      <!-- CAMPO DE TEXTO -->
+      <!-- type="text" define el tipo de entrada -->
+      <!-- placeholder muestra un texto de ejemplo dentro del cuadro -->
+      <input type="text" placeholder="Escribe tu mensaje..."/>
+
+      <!-- BOTÓN DE ENVÍO -->
+      <!-- Al hacer clic, se ejecuta el código JavaScript que enviará el mensaje -->
+      <button>Enviar</button>
+    </footer>
+  </div>
+</body>
+</html>

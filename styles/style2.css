@@ -1,0 +1,224 @@
+/* 
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  → El asterisco (*) selecciona TODOS los elementos de la página.
+  → box-sizing: border-box hace que los márgenes y bordes se incluyan dentro del tamaño total.
+  → margin: 0 y padding: 0 eliminan los espacios por defecto del navegador.
+*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  html, body {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f2f2f2;
+  }
+  → Afecta al documento y al cuerpo de la página.
+  → height: 100% permite que el chat use toda la altura disponible.
+  → font-family define la fuente del texto.
+  → background-color define un color gris claro de fondo general.
+*/
+html,
+body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f2f2f2;
+}
+
+/*
+  .contenedor-chat {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+  }
+  → Es el contenedor principal del chat.
+  → display: flex organiza los elementos internos (header, main, footer) en una columna.
+  → flex-direction: column coloca los elementos de arriba hacia abajo.
+  “Colócalos uno al lado del otro.” → flex-direction: row
+
+    “Ponlos uno debajo del otro.” → flex-direction: column
+
+    “Reparte el espacio entre ellos.” → justify-content: space-between
+
+    “Céntralos verticalmente.” → align-items: center
+*/
+.contenedor-chat {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+/* CABECERA DEL CHAT */
+.cabecera {
+  display: flex;              /* Coloca la imagen y los textos en línea */
+  align-items: center;        /* Centra verticalmente los elementos */
+  gap: 12px;                  /* Espacio entre logo y texto */
+  padding: 16px;              /* Espacio interno */
+  border-bottom: 1px solid #e0e0e0; /* Línea gris en la parte inferior */
+  background-color: #ffffff;  /* Fondo blanco */
+  flex-shrink: 0;             /* Evita que la cabecera se encoja al redimensionar */
+}
+
+/*
+  .cabecera img → Da estilo al logo
+  - width y height definen tamaño fijo.
+  - object-fit: contain evita que se distorsione.
+*/
+.cabecera img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/*
+  .info-cabecera → Agrupa el título y subtítulo.
+  display: flex + flex-direction: column → coloca los dos textos uno debajo del otro.
+*/
+.info-cabecera {
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+  .titulo → Estilo del nombre principal "CRONICS".
+  - color azul corporativo.
+  - fuente más grande y en negrita.
+*/
+.titulo {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2d4cd3;
+}
+
+/*
+  .subtitulo → Estilo del texto "ASESOR".
+  - fuente más pequeña y mismo color azul.
+*/
+.subtitulo {
+  font-size: 13px;
+  color: #2d4cd3;
+}
+
+/* CUERPO DE LOS MENSAJES */
+.mensajes {
+  flex: 1;                    /* Ocupa todo el espacio libre entre header y footer */
+  padding: 16px;              /* Espaciado interior */
+  overflow-y: auto;           /* Permite desplazamiento vertical si hay muchos mensajes */
+  display: flex;              /* Organiza los mensajes en columna */
+  flex-direction: column;
+  gap: 12px;                  /* Espacio entre mensajes */
+  background-color: #ffffff;  /* Fondo blanco del área del chat */
+}
+
+/*
+  .mensaje → Estilo general de cada burbuja (bot o usuario)
+  - padding: espacio interno del texto.
+  - border-radius: esquinas redondeadas.
+  - max-width: limita el ancho máximo al 80% del contenedor.
+  - word-break: permite que las palabras largas se dividan para no salir del cuadro.
+*/
+.mensaje {
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 80%;
+  font-size: 14px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/*
+  .bot → Estilo para mensajes del bot.
+  - align-self: flex-start los coloca a la izquierda.
+  - fondo gris claro.
+*/
+.bot {
+  align-self: flex-start;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/*
+  .usuario → Estilo para mensajes del usuario.
+  - align-self: flex-end los coloca a la derecha.
+  - fondo azul claro.
+*/
+.usuario {
+  align-self: flex-end;
+  background-color: #d6e4ff;
+  color: #000;
+}
+
+/* PIE DE ENTRADA */
+.entrada {
+  display: flex;                  /* Organiza input y botón en línea */
+  flex-shrink: 0;                 /* Evita que se encoja */
+  padding: 12px;
+  border-top: 1px solid #e0e0e0;  /* Línea divisoria superior */
+  background-color: #fafafa;      /* Fondo gris claro */
+  align-items: center;            /* Centra verticalmente los elementos */
+  gap: 10px;                      /* Espacio entre input y botón */
+  flex-wrap: nowrap;              /* Evita que los elementos salten de línea */
+}
+
+/*
+  .entrada input → Caja de texto del usuario
+  - flex: 1 permite que crezca para ocupar el espacio disponible.
+  - min-width: 0 evita errores de desbordamiento.
+*/
+.entrada input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  min-width: 0;
+}
+
+/*
+  .entrada button → Botón "Enviar"
+  - color de fondo azul.
+  - border-radius: esquinas suaves.
+  - cursor: pointer cambia el puntero al pasar el mouse.
+  - flex-shrink: 0 evita que se reduzca de tamaño.
+  - opacity: 0.6 lo muestra un poco más suave hasta que esté activo.
+*/
+.entrada button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2d4cd3;
+  color: white;
+  font-size: 14px;
+  opacity: 0.6;
+  white-space: nowrap;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/*
+  @media → Reglas responsivas para pantallas pequeñas.
+  max-width: 400px significa "aplicar solo si el ancho es menor o igual a 400px".
+  Sirve para mejorar la visualización en celulares.
+*/
+@media screen and (max-width: 400px) {
+  .entrada {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .entrada button {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
